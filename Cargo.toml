@@ -68,6 +68,7 @@ embedded-hal = "0.2.6"
 embedded-io = { version = "0.6.0" }
 embedded-io-async = { version = "0.6.1" }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
+embassy-sync = "0.5.0"
 #embassy-futures = { version = "0.1.1", features = ["defmt"] }
 #futures = { version = "0.3.17", default-features = false, features = ["async-await"] }
 #heapless = { version = "0.8", default-features = false }

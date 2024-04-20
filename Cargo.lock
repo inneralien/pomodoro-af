@@ -600,6 +600,7 @@ dependencies = [
  "defmt-rtt",
  "embassy-executor",
  "embassy-stm32",
+ "embassy-sync",
  "embassy-time",
  "embedded-hal 0.2.7",
  "embedded-io",
