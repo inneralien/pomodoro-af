@@ -1,18 +1,19 @@
-
 #![no_std]
 #![no_main]
 
 use defmt::*;
 use embassy_executor::Spawner;
 use embassy_stm32::dma::NoDma;
+use embassy_stm32::gpio::{Input, Level, Output, Pull, Speed};
 use embassy_stm32::i2c::{Error, I2c};
 use embassy_stm32::time::Hertz;
 use embassy_stm32::{bind_interrupts, i2c, peripherals};
-use embassy_stm32::gpio::{Input, Level, Output, Pull, Speed};
 use embassy_time::{Duration, Timer};
 use {defmt_rtt as _, panic_probe as _};
 
 // DS1307 Read/Write addresses
+// The LSB of the address byte is the R/W bit added by the I2C protocol
+#[allow(clippy::unusual_byte_groupings)]
 const DEVICE_ADDR: u8 = 0b1101_000;
 
 //const ADDRESS: u8 = 0x5F;
