@@ -42,6 +42,9 @@ async fn pomo_timer_task() {
                 if COUNTDOWN.load(core::sync::atomic::Ordering::Relaxed) > 0 {
                     COUNTDOWN.fetch_sub(1, core::sync::atomic::Ordering::Relaxed);
                 }
+                // TODO -- Maybe send a pubsub message with the current countdown time?
+                // Not sure what the best method to convey current time is, but
+                // pubsub might be good since multiple tasks may need to know.
             }
             TimerState::Paused => {}
             TimerState::Reset => {
